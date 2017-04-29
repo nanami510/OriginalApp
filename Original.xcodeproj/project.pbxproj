@@ -14,6 +14,14 @@
 		1EC324D91EB4599A001E5AE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC324D71EB4599A001E5AE9 /* LaunchScreen.storyboard */; };
 		1EC324E41EB4599A001E5AE9 /* OriginalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324E31EB4599A001E5AE9 /* OriginalTests.swift */; };
 		1EC324EF1EB4599A001E5AE9 /* OriginalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324EE1EB4599A001E5AE9 /* OriginalUITests.swift */; };
+		1EC324FD1EB459DE001E5AE9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324FC1EB459DE001E5AE9 /* RootViewController.swift */; };
+		1EC324FF1EB459F2001E5AE9 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324FE1EB459F2001E5AE9 /* ContentViewController.swift */; };
+		1EC325011EB45A0B001E5AE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC325001EB45A0B001E5AE9 /* RegisterViewController.swift */; };
+		1EC325031EB45A69001E5AE9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC325021EB45A69001E5AE9 /* MenuViewController.swift */; };
+		1EC325051EB45F36001E5AE9 /* menuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC325041EB45F36001E5AE9 /* menuButton.png */; };
+		1EC325071EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC325061EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift */; };
+		1EC325091EB46120001E5AE9 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC325081EB46120001E5AE9 /* DateManager.swift */; };
+		1EE889631EB47792003B330E /* DetailDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE889621EB47792003B330E /* DetailDayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		1EC324EA1EB4599A001E5AE9 /* OriginalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriginalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC324EE1EB4599A001E5AE9 /* OriginalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalUITests.swift; sourceTree = "<group>"; };
 		1EC324F01EB4599A001E5AE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EC324FC1EB459DE001E5AE9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		1EC324FE1EB459F2001E5AE9 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		1EC325001EB45A0B001E5AE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1EC325021EB45A69001E5AE9 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1EC325041EB45F36001E5AE9 /* menuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuButton.png; path = ../menuButton.png; sourceTree = "<group>"; };
+		1EC325061EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalenderCellCollectionViewCell.swift; path = ../CalenderCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		1EC325081EB46120001E5AE9 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		1EE889621EB47792003B330E /* DetailDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +113,20 @@
 		1EC324CD1EB4599A001E5AE9 /* Original */ = {
 			isa = PBXGroup;
 			children = (
+				1EC325061EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift */,
 				1EC324CE1EB4599A001E5AE9 /* AppDelegate.swift */,
 				1EC324D01EB4599A001E5AE9 /* ViewController.swift */,
 				1EC324D21EB4599A001E5AE9 /* Main.storyboard */,
+				1EC324FC1EB459DE001E5AE9 /* RootViewController.swift */,
+				1EC324FE1EB459F2001E5AE9 /* ContentViewController.swift */,
+				1EE889621EB47792003B330E /* DetailDayViewController.swift */,
+				1EC325081EB46120001E5AE9 /* DateManager.swift */,
+				1EC325021EB45A69001E5AE9 /* MenuViewController.swift */,
+				1EC325001EB45A0B001E5AE9 /* RegisterViewController.swift */,
 				1EC324D51EB4599A001E5AE9 /* Assets.xcassets */,
 				1EC324D71EB4599A001E5AE9 /* LaunchScreen.storyboard */,
 				1EC324DA1EB4599A001E5AE9 /* Info.plist */,
+				1EC325041EB45F36001E5AE9 /* menuButton.png */,
 			);
 			path = Original;
 			sourceTree = "<group>";
@@ -237,6 +261,7 @@
 			files = (
 				1EC324D91EB4599A001E5AE9 /* LaunchScreen.storyboard in Resources */,
 				1EC324D61EB4599A001E5AE9 /* Assets.xcassets in Resources */,
+				1EC325051EB45F36001E5AE9 /* menuButton.png in Resources */,
 				1EC324D41EB4599A001E5AE9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +287,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC324FF1EB459F2001E5AE9 /* ContentViewController.swift in Sources */,
+				1EC325031EB45A69001E5AE9 /* MenuViewController.swift in Sources */,
+				1EC325011EB45A0B001E5AE9 /* RegisterViewController.swift in Sources */,
 				1EC324D11EB4599A001E5AE9 /* ViewController.swift in Sources */,
 				1EC324CF1EB4599A001E5AE9 /* AppDelegate.swift in Sources */,
+				1EC325091EB46120001E5AE9 /* DateManager.swift in Sources */,
+				1EC324FD1EB459DE001E5AE9 /* RootViewController.swift in Sources */,
+				1EC325071EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift in Sources */,
+				1EE889631EB47792003B330E /* DetailDayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +544,7 @@
 				1EC324F51EB4599A001E5AE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1EC324F61EB4599A001E5AE9 /* Build configuration list for PBXNativeTarget "OriginalTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +553,7 @@
 				1EC324F81EB4599A001E5AE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1EC324F91EB4599A001E5AE9 /* Build configuration list for PBXNativeTarget "OriginalUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +562,7 @@
 				1EC324FB1EB4599A001E5AE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
