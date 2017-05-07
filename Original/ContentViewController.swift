@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import RealmSwift
+var selectedDay : String?
 
 class realmDataSet: Object {
     
@@ -117,22 +118,17 @@ extension UIColor {
             selectDate = dateManager.conversionDateFormat(indexPath: indexPath)
             if selectDate !=  "" {
                 // SubViewController へ遷移するために Segue を呼び出す
-                performSegue(withIdentifier: "toDetailDayViewController",sender: nil)
+                let formatter: DateFormatter = DateFormatter()
+                formatter.dateFormat = "yyyy年M月"
+                selectedDay = formatter.string(from: selectedDate) + selectDate! + "日"
+                performSegue(withIdentifier: "toTableViewController",sender: nil)
+                
+                
             }
             
                    }
         
-        override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-            if (segue.identifier == "toDetailDayViewController") {
-                let formatter: DateFormatter = DateFormatter()
-                //let formatter = DateFormatter() // 🔴これでもOKです
-                formatter.dateFormat = "yyyy年M月"
-                let ddVC: DetailDayViewController = (segue.destination as? DetailDayViewController)!
-                // SubViewController のselectedImgに選択された画像を設定する
-                ddVC.selectedDate = formatter.string(from: selectedDate) + selectDate! + "日"
-            }
-        }
-        
+               
         //headerの月を変更
         // 🔴修正前 (date: NSDate)
         func changeHeaderTitle() -> String {
