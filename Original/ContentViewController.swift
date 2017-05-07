@@ -7,6 +7,17 @@
 //
 import Foundation
 import UIKit
+import RealmSwift
+
+class realmDataSet: Object {
+    
+    dynamic var now = NSDate()
+    dynamic var ID = String()
+    dynamic var Message = String()
+    dynamic var Message2 = String()
+    
+}
+
 
 extension UIColor {
     class func lightBlue() -> UIColor {
