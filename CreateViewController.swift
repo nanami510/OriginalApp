@@ -10,28 +10,34 @@ import UIKit
 import RealmSwift
 
 class Todo: Object {
-    dynamic var todo_id = ""
+    dynamic var id: Int = 1
     dynamic var title = ""
     dynamic var date = ""
-    dynamic var starttime = ""
-    dynamic var endtime = ""
+    dynamic var starttime: Int = 0
+    dynamic var endtime: Int = 0
     dynamic var memo = ""
-    }
+    dynamic var createdAt = NSDate()
+    dynamic var deleate: Int = 0
+        }
 
 class TimeTable: Object {
-    dynamic var timetable_id = ""
+    dynamic var id: Int = 0
     dynamic var title = ""
     dynamic var dayOfTheWeek = ""
-    dynamic var period=""
+    dynamic var period: Int = 0
+    dynamic var createdAt = NSDate()
+    dynamic var deleate: Int = 0
     
 }
 
 class Note:Object{
-    dynamic var note_id = ""
+    dynamic var id: Int = 0
     dynamic var title = ""
     dynamic var dayOfTheWeek = ""
-    dynamic var period=""
+    dynamic var period: Int = 0
     dynamic var date = ""
+    dynamic var createdAt = NSDate()
+    dynamic var deleate: Int = 0
 }
 
 
@@ -83,9 +89,9 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
         let todo = Todo()
         todo.title = textField.text!
         todo.date = selectedDay!
-        todo.starttime = start.text!
-        todo.endtime = end.text!
-        
+        todo.starttime = Int(start.text!)!
+        todo.endtime = Int(end.text!)!
+        todo.id=(realm.objects(Todo.self).max(ofProperty: "id") as Int? ?? 0) + 1
         todo.memo = textView.text
         try! realm.write {
             realm.add(todo)
