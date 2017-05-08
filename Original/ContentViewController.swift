@@ -54,6 +54,9 @@ extension UIColor {
             calenderCollectionView.delegate = self
             calenderCollectionView.dataSource = self
             calenderCollectionView.backgroundColor = UIColor.white
+            calenderCollectionView.reloadData()
+            // 🔴修正前 (date: selectedDate)
+            headerTitle.text = changeHeaderTitle()
             
         }
         

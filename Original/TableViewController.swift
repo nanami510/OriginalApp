@@ -44,9 +44,10 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let todoCollection = realm.objects(Todo.self)
+        
         // Realmに保存されているTodo型のobjectsを取得。
         let todo = todoCollection.filter("date  == %@",selectedDay).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
-        return todo.count // 総todo数を返している
+                return todo.count // 総todo数を返している
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
