@@ -61,12 +61,17 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let todoCollection = realm.objects(Todo.self)
         // Realmに保存されているTodo型のobjectsを取得。
-        let todo = todoCollection.filter("deleate=0 AND date == %@", selectedDate).sorted(byKeyPath: "id", ascending: true)[indexPath.row]
-       cell.textLabel?.text = todo.title
-        
+
+        let todo = todoCollection.filter("date  == %@",selectedDay).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
+        if todo.count != 0   {
+         cell.textLabel?.text = todo[todo.count-1].title
         return cell
+        } else {
+            return cell
+        }
     }
-    
+}
+
     
     /*
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,4 +128,4 @@ class TableViewController: UITableViewController {
      }
      */
     
-}
+

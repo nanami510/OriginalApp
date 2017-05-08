@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import RealmSwift
-var selectedDay : String?
+var selectedDay : String!
 
 class realmDataSet: Object {
     
