@@ -9,10 +9,6 @@
 import UIKit
 import RealmSwift
 
-
-
-
-
 class TableViewController: UITableViewController {
     var selectedDate:String!
    
@@ -27,7 +23,6 @@ class TableViewController: UITableViewController {
     
     
     
-    
     func goCreate() {
         performSegue(withIdentifier: "goCreate", sender: nil)
     }
@@ -35,10 +30,7 @@ class TableViewController: UITableViewController {
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
     }
     
-    
-    
-    
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -53,8 +45,8 @@ class TableViewController: UITableViewController {
         
         let todoCollection = realm.objects(Todo.self)
         // Realmに保存されているTodo型のobjectsを取得。
-        
-        return todoCollection.count // 総todo数を返している
+        let todo = todoCollection.filter("date  == %@",selectedDay).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
+        return todo.count // 総todo数を返している
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,7 +56,7 @@ class TableViewController: UITableViewController {
 
         let todo = todoCollection.filter("date  == %@",selectedDay).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
         if todo.count != 0   {
-         cell.textLabel?.text = todo[todo.count-1].title
+         cell.textLabel?.text = todo[indexPath.row].title
         return cell
         } else {
             return cell
