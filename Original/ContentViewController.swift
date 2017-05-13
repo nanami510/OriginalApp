@@ -123,9 +123,15 @@ extension UIColor {
             dateOfSelectedDay=selectedDate
             if selectDate !=  "" {
                 // SubViewController へ遷移するために Segue を呼び出す
-                let formatter: DateFormatter = DateFormatter()
-                formatter.dateFormat = "yyyy年M月"
-                selectedDay = formatter.string(from: selectedDate) + selectDate! + "日"
+               // let formatter: DateFormatter = DateFormatter()
+             //   formatter.dateFormat = "yyyy年M月"
+                let formatterYear: DateFormatter = DateFormatter()
+                formatterYear.dateFormat="yyyy"
+                let formatterMonth: DateFormatter = DateFormatter()
+                formatterMonth.dateFormat="M"
+                let calendar = Calendar(identifier: .gregorian)
+                dateOfSelectedDay=calendar.date(from: DateComponents(year: Int(formatterYear.string(from:selectedDate)), month:  Int(formatterMonth.string(from:selectedDate)), day:Int(selectDate!) ))
+                //selectedDay = formatter.string(from: selectedDate) + selectDate!+"日"
                 performSegue(withIdentifier: "toTableViewController",sender: nil)
                 
                 

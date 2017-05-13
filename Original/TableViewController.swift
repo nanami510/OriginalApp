@@ -11,13 +11,16 @@ import RealmSwift
 
 class TableViewController: UITableViewController {
     var selectedDate:String!
+    let dateFormat = DateFormatter()
    
     let realm = try! Realm() //いつもの
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title=selectedDay
+        dateFormat.dateFormat = "yyyy年MM月dd日"
+        self.title=dateFormat.string(from: dateOfSelectedDay)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "予定追加", style: .plain, target: self, action: #selector(self.goCreate))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: self, action: #selector(self.goContent))
         
     }
     
@@ -25,6 +28,9 @@ class TableViewController: UITableViewController {
     
     func goCreate() {
         performSegue(withIdentifier: "goCreate", sender: nil)
+    }
+    func goContent() {
+        performSegue(withIdentifier: "toContentViewController", sender: nil)
     }
     
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
@@ -46,7 +52,7 @@ class TableViewController: UITableViewController {
         let todoCollection = realm.objects(Todo.self)
         
         // Realmに保存されているTodo型のobjectsを取得。
-        let todo = todoCollection.filter("date  == %@",selectedDay).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
+        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
                 return todo.count // 総todo数を返している
     }
     
@@ -54,8 +60,11 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let todoCollection = realm.objects(Todo.self)
         // Realmに保存されているTodo型のobjectsを取得。
+        
+       // dateFormat.dateFormat = "yyyy年MM月dd日"
+       // let selectordate = dateFormat.date(from: selectedDay)
 
-        let todo = todoCollection.filter("date  == %@",selectedDay).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
+        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
         if todo.count != 0   {
          cell.textLabel?.text = todo[indexPath.row].title
         return cell

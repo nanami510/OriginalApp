@@ -93,7 +93,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iCo-Cn-W3P" id="uwx-3c-Eap">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -106,6 +106,7 @@
                     <navigationItem key="navigationItem" id="9dn-Ek-h7F"/>
                     <connections>
                         <segue destination="Tx6-Cl-Vcp" kind="show" identifier="goCreate" id="4Pn-WU-koa"/>
+                        <segue destination="BTJ-LB-lGI" kind="presentation" identifier="toContentViewController" id="dxf-UP-RV8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Za5-Gw-7gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -215,7 +216,7 @@
                     <connections>
                         <outlet property="dateSelecter" destination="zbH-z1-8Xc" id="r4h-lT-Idx"/>
                         <outlet property="end" destination="CV4-XL-QdG" id="whX-hv-RZl"/>
-                        <outlet property="start" destination="oxY-Yy-Kwh" id="mSu-bg-XQG"/>
+                        <outlet property="start" destination="oxY-Yy-Kwh" id="vls-5j-gGx"/>
                         <outlet property="textField" destination="3hv-TQ-iIG" id="KxX-Sy-5E5"/>
                         <outlet property="textView" destination="7gJ-gz-0Ih" id="8P3-dI-eOd"/>
                     </connections>

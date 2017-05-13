@@ -12,9 +12,9 @@ import RealmSwift
 class Todo: Object {
     dynamic var id: Int = 1
     dynamic var title = ""
-    dynamic var date = ""
-    dynamic var starttime: Int = 0
-    dynamic var endtime: Int = 0
+    dynamic var date = NSDate()
+    dynamic var starttime = ""
+    dynamic var endtime = ""
     dynamic var memo = ""
     dynamic var createdAt = NSDate()
     dynamic var deleate: Int = 0
@@ -42,7 +42,6 @@ class Note:Object{
 
 
 class CreateViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet var date:UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var start: UITextField!
     @IBOutlet weak var end: UITextField!
@@ -51,6 +50,12 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
     let nowDate = NSDate()
     let dateFormat = DateFormatter()
     let inputDatePicker = UIDatePicker()
+    let inputStartDatePicker = UIDatePicker()
+    let inputEndDatePicker = UIDatePicker()
+    let timeFormat = DateFormatter()
+    let inputStartTimePicker = UIDatePicker()
+    let inputEndTimePicker = UIDatePicker()
+
     
     
     
@@ -58,7 +63,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        date.text = selectedDay
+
         start.delegate = self
         end.delegate = self
         textField.delegate = self
@@ -101,12 +106,75 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
         //ツールバーにボタンを表示
         pickerToolBar.items = [spaceBarBtn,toolBarBtn]
         dateSelecter.inputAccessoryView = pickerToolBar
+        
+        
+        
+        //日付フィールドの設定
+        timeFormat.dateFormat = "kk:mm"
+        start.text = timeFormat.string(from: nowDate as Date)
+        self.start.delegate = self
+        
+        // DatePickerの設定(日付用)
+        inputStartTimePicker.datePickerMode = UIDatePickerMode.time
+        start.inputView = inputStartTimePicker
+
+        //完了ボタンを設定
+        let toolStartBarBtn      = UIBarButtonItem(title: "完了", style: .done, target: self, action:#selector(toolStartBarBtnPush(sender:)))
+        // キーボードに表示するツールバーの表示
+        let pickerStartToolBar = UIToolbar(frame: CGRect(x:0, y:self.view.frame.size.height/6,width: self.view.frame.size.width,height: 40.0))
+        pickerStartToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        pickerStartToolBar.barStyle = .blackTranslucent
+        pickerStartToolBar.tintColor = UIColor.white
+        pickerStartToolBar.backgroundColor = UIColor.black
+        
+        //ツールバーにボタンを表示
+        pickerStartToolBar.items = [spaceBarBtn,toolStartBarBtn]
+        start.inputAccessoryView = pickerStartToolBar
+        
+        //日付フィールドの設定
+        
+        end.text = timeFormat.string(from: nowDate as Date)
+        self.end.delegate = self
+        
+        // DatePickerの設定(日付用)
+        inputEndTimePicker.datePickerMode = UIDatePickerMode.time
+        end.inputView = inputEndTimePicker
+        
+        //完了ボタンを設定
+        let toolEndBarBtn      = UIBarButtonItem(title: "完了", style: .done, target: self, action:#selector(toolEndBarBtnPush(sender:)))
+        // キーボードに表示するツールバーの表示
+        let pickerEndToolBar = UIToolbar(frame: CGRect(x:0, y:self.view.frame.size.height/6,width: self.view.frame.size.width,height: 40.0))
+        pickerEndToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        pickerEndToolBar.barStyle = .blackTranslucent
+        pickerEndToolBar.tintColor = UIColor.white
+        pickerEndToolBar.backgroundColor = UIColor.black
+        
+        //ツールバーにボタンを表示
+        pickerEndToolBar.items = [spaceBarBtn,toolEndBarBtn]
+        end.inputAccessoryView = pickerEndToolBar
+
+       
+
     }
     
     func toolBarBtnPush(sender: UIBarButtonItem){
         
         var pickerDate = inputDatePicker.date
         dateSelecter.text = dateFormat.string(from: pickerDate)
+        
+        self.view.endEditing(true)
+    }
+    func toolStartBarBtnPush(sender: UIBarButtonItem){
+        
+        var pickerStartTime = inputStartTimePicker.date
+        start.text = timeFormat.string(from: pickerStartTime)
+        
+        self.view.endEditing(true)
+    }
+    func toolEndBarBtnPush(sender: UIBarButtonItem){
+        
+        var pickerEndTime = inputEndTimePicker.date
+        end.text = timeFormat.string(from: pickerEndTime)
         
         self.view.endEditing(true)
     }
@@ -131,11 +199,11 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func createButton(_sender: Any) {
         let realm = try! Realm()
-        if let title = textField.text, let date = dateSelecter.text, let starttime=Int(start.text!),let endtime=Int(end.text!),let memo = textView.text{
+        if let title = textField.text, let date = dateFormat.date(from: dateSelecter.text!) , let starttime=start.text,let endtime=end.text,let memo = textView.text{
 
         let todo = Todo()
         todo.title = title
-        todo.date = date
+        todo.date = date as NSDate
         todo.starttime = starttime
         todo.endtime = endtime
         todo.id=(realm.objects(Todo.self).max(ofProperty: "id") as Int? ?? 0) + 1
