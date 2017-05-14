@@ -82,22 +82,45 @@ extension UIColor {
         //3
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CalenderCellCollectionViewCell
+           
             if (indexPath.row % 7 == 0) {
                 cell.textLabel.textColor = UIColor.lightRed()
+                cell.textWeekLabel.textColor = UIColor.lightRed()
             } else if (indexPath.row % 7 == 6) {
                 cell.textLabel.textColor = UIColor.lightBlue()
+                cell.textWeekLabel.textColor = UIColor.lightBlue()
             } else {
                 cell.textLabel.textColor = UIColor.gray
+                cell.textWeekLabel.textColor = UIColor.gray
             }
             //テキスト配置
             if indexPath.section == 0 {
-                cell.textLabel.text = weekArray[indexPath.row]
+                cell.textWeekLabel.text = weekArray[indexPath.row]
+                
             } else {
                 cell.textLabel.text = dateManager.conversionDateFormat(indexPath: indexPath)
+                let formatterYear: DateFormatter = DateFormatter()
+                formatterYear.dateFormat="yyyy"
+                let formatterMonth: DateFormatter = DateFormatter()
+                formatterMonth.dateFormat="M"
+                let calendar = Calendar(identifier: .gregorian)
+                let serchday = calendar.date(from: DateComponents(year: Int(formatterYear.string(from:selectedDate)), month:  Int(formatterMonth.string(from:selectedDate)), day:Int(dateManager.conversionDateFormat(indexPath: indexPath)) ))
+                let realm = try! Realm()
+                let todoCollection = realm.objects(Todo.self)
+                
+                // Realmに保存されているTodo型のobjectsを取得。
+                let todo = todoCollection.filter("date  == %@",serchday!).filter("deleate  == 0")
+                 if todo.count > 1 {
+                    cell.textTitleLabel.text = todo[0].title
+                    cell.textTitle2Label.text = todo[1].title
+                } else if todo.count != 0 {
+                    cell.textTitleLabel.text = todo[0].title
+                }
                 //月によって1日の場所は異なる
             }
             return cell
         }
+        
         
         //セルのサイズを設定
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

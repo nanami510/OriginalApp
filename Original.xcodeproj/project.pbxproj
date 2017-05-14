@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1E09382D1EB5B61E000B6900 /* hamburger02.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1E09382C1EB5B61E000B6900 /* hamburger02.gif */; };
+		1E65E71B1EC8783E00AE9162 /* ClasstableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E65E71A1EC8783E00AE9162 /* ClasstableViewController.swift */; };
+		1E65E71D1EC8881100AE9162 /* ClasstableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E65E71C1EC8881100AE9162 /* ClasstableCollectionViewCell.swift */; };
 		1EC324CF1EB4599A001E5AE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324CE1EB4599A001E5AE9 /* AppDelegate.swift */; };
 		1EC324D61EB4599A001E5AE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC324D51EB4599A001E5AE9 /* Assets.xcassets */; };
 		1EC324D91EB4599A001E5AE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC324D71EB4599A001E5AE9 /* LaunchScreen.storyboard */; };
@@ -49,6 +51,8 @@
 /* Begin PBXFileReference section */
 		03313603A6D86EF6C38BCD47 /* Pods-Original.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Original.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Original/Pods-Original.debug.xcconfig"; sourceTree = "<group>"; };
 		1E09382C1EB5B61E000B6900 /* hamburger02.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hamburger02.gif; path = ../../hamburger02.gif; sourceTree = "<group>"; };
+		1E65E71A1EC8783E00AE9162 /* ClasstableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClasstableViewController.swift; sourceTree = "<group>"; };
+		1E65E71C1EC8881100AE9162 /* ClasstableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClasstableCollectionViewCell.swift; sourceTree = "<group>"; };
 		1EC324CB1EB4599A001E5AE9 /* Original.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Original.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC324CE1EB4599A001E5AE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC324D51EB4599A001E5AE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				1EEA9C971EBEFA6900F0C826 /* Main.storyboard */,
+				1E65E71A1EC8783E00AE9162 /* ClasstableViewController.swift */,
 				1EC325061EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift */,
 				1EC324CE1EB4599A001E5AE9 /* AppDelegate.swift */,
 				1EEA9C931EBEF54D00F0C826 /* TableViewController.swift */,
@@ -145,6 +150,7 @@
 				1EC325081EB46120001E5AE9 /* DateManager.swift */,
 				1EC325021EB45A69001E5AE9 /* MenuViewController.swift */,
 				1EC325001EB45A0B001E5AE9 /* RegisterViewController.swift */,
+				1E65E71C1EC8881100AE9162 /* ClasstableCollectionViewCell.swift */,
 				1EC324D51EB4599A001E5AE9 /* Assets.xcassets */,
 				1EC324D71EB4599A001E5AE9 /* LaunchScreen.storyboard */,
 				1EC324DA1EB4599A001E5AE9 /* Info.plist */,
@@ -486,6 +492,8 @@
 				1EC325031EB45A69001E5AE9 /* MenuViewController.swift in Sources */,
 				1EC325011EB45A0B001E5AE9 /* RegisterViewController.swift in Sources */,
 				1EEA9C941EBEF54D00F0C826 /* TableViewController.swift in Sources */,
+				1E65E71B1EC8783E00AE9162 /* ClasstableViewController.swift in Sources */,
+				1E65E71D1EC8881100AE9162 /* ClasstableCollectionViewCell.swift in Sources */,
 				1EC324CF1EB4599A001E5AE9 /* AppDelegate.swift in Sources */,
 				1EC325091EB46120001E5AE9 /* DateManager.swift in Sources */,
 				1EC324FD1EB459DE001E5AE9 /* RootViewController.swift in Sources */,
