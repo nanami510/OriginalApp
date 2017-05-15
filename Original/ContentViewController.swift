@@ -96,23 +96,33 @@ extension UIColor {
             //テキスト配置
             if indexPath.section == 0 {
                 cell.textWeekLabel.text = weekArray[indexPath.row]
+                cell.textLabel.text=""
+                cell.textTitleLabel.text=""
                 
             } else {
+                
+                cell.textWeekLabel.text=""
+                cell.textLabel.text=""
+                cell.textTitleLabel.text=""
+                cell.textTitle2Label.text=""
                 cell.textLabel.text = dateManager.conversionDateFormat(indexPath: indexPath)
+               /* Calendar.current.ordinality(of: .day, in: .weekOfMonth, for: dateManager.firstDateOfMonth())
                 let formatterYear: DateFormatter = DateFormatter()
                 formatterYear.dateFormat="yyyy"
                 let formatterMonth: DateFormatter = DateFormatter()
                 formatterMonth.dateFormat="M"
-                let calendar = Calendar(identifier: .gregorian)
-                let serchday = calendar.date(from: DateComponents(year: Int(formatterYear.string(from:selectedDate)), month:  Int(formatterMonth.string(from:selectedDate)), day:Int(dateManager.conversionDateFormat(indexPath: indexPath)) ))
+                let calendar = Calendar(identifier: .gregorian)*/
+                let serchday = dateManager.currentMonthOfDates[indexPath.row]
                 let realm = try! Realm()
                 let todoCollection = realm.objects(Todo.self)
                 
                 // Realmに保存されているTodo型のobjectsを取得。
-                let todo = todoCollection.filter("date  == %@",serchday!).filter("deleate  == 0")
+                let todo = todoCollection.filter("date  == %@",serchday).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
                  if todo.count > 1 {
-                    cell.textTitleLabel.text = todo[0].title
+                    cell.textTitleLabel.text =  todo[0].title
                     cell.textTitle2Label.text = todo[1].title
+                    cell.textTitleLabel.lineBreakMode = NSLineBreakMode.byClipping
+                    cell.textTitle2Label.lineBreakMode = NSLineBreakMode.byClipping
                 } else if todo.count != 0 {
                     cell.textTitleLabel.text = todo[0].title
                 }
@@ -148,12 +158,7 @@ extension UIColor {
                 // SubViewController へ遷移するために Segue を呼び出す
                // let formatter: DateFormatter = DateFormatter()
              //   formatter.dateFormat = "yyyy年M月"
-                let formatterYear: DateFormatter = DateFormatter()
-                formatterYear.dateFormat="yyyy"
-                let formatterMonth: DateFormatter = DateFormatter()
-                formatterMonth.dateFormat="M"
-                let calendar = Calendar(identifier: .gregorian)
-                dateOfSelectedDay=calendar.date(from: DateComponents(year: Int(formatterYear.string(from:selectedDate)), month:  Int(formatterMonth.string(from:selectedDate)), day:Int(selectDate!) ))
+                dateOfSelectedDay = dateManager.currentMonthOfDates[indexPath.row] as Date
                 //selectedDay = formatter.string(from: selectedDate) + selectDate!+"日"
                 performSegue(withIdentifier: "toTableViewController",sender: nil)
                 
@@ -203,7 +208,9 @@ extension UIColor {
             rootViewController.dismissMenuViewController()
         }
         
-        
+        @IBAction func back (_segue:UIStoryboardSegue){
+            
+        }
         /*
          // MARK: - Navigation
          

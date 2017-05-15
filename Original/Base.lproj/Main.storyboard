@@ -93,7 +93,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iCo-Cn-W3P" id="uwx-3c-Eap">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -103,13 +103,20 @@
                             <outlet property="delegate" destination="mkR-Mj-gTM" id="0mx-W5-HeB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9dn-Ek-h7F"/>
+                    <navigationItem key="navigationItem" id="9dn-Ek-h7F">
+                        <barButtonItem key="leftBarButtonItem" title="戻る" id="naZ-Iq-7HU">
+                            <connections>
+                                <segue destination="ORq-mQ-zoB" kind="unwind" unwindAction="backWith_segue:" id="4Mq-AH-WIp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Tx6-Cl-Vcp" kind="show" identifier="goCreate" id="4Pn-WU-koa"/>
-                        <segue destination="BTJ-LB-lGI" kind="presentation" identifier="toContentViewController" id="dxf-UP-RV8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Za5-Gw-7gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Title" id="04P-uN-haQ"/>
+                <exit id="ORq-mQ-zoB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1705" y="842"/>
         </scene>
@@ -125,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hv-TQ-iIG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hv-TQ-iIG">
                                 <rect key="frame" x="84" y="128" width="247" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -272,34 +279,36 @@
                                 <rect key="frame" x="0.0" y="49" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOk-uj-d05">
-                                        <rect key="frame" x="15" y="30" width="31" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Prev">
-                                            <color key="titleColor" red="0.97678571430000005" green="0.54453125000000002" blue="0.49280133929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedHeaderPrevBtn:" destination="BTJ-LB-lGI" eventType="touchUpInside" id="8iB-zd-mMh"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtj-8X-ltA">
-                                        <rect key="frame" x="335" y="30" width="32" height="30"/>
+                                        <rect key="frame" x="301" y="31" width="66" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Next">
-                                            <color key="titleColor" red="0.97678571430000005" green="0.54453125000000002" blue="0.49280133929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.60451931423611116" green="0.93505859375" blue="0.71449110243055558" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="tappedHeaderNextBtn:" destination="BTJ-LB-lGI" eventType="touchUpInside" id="c29-Ht-gd4"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2017年4月" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh3-F7-suc">
-                                        <rect key="frame" x="131" y="30" width="112" height="15"/>
+                                        <rect key="frame" x="131" y="27" width="112" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.42663402290000002" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOk-uj-d05">
+                                        <rect key="frame" x="8" y="33" width="52" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                        <state key="normal" title="Prev">
+                                            <color key="titleColor" red="0.60392156862745094" green="0.93333333333333335" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedHeaderPrevBtn:" destination="BTJ-LB-lGI" eventType="touchUpInside" id="8iB-zd-mMh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXU-0E-TYo">
@@ -462,7 +471,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scell" id="Sjv-wA-e0W" customClass="ClasstableCollectionViewCell" customModule="Original" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Sjv-wA-e0W" customClass="ClasstableCollectionViewCell" customModule="Original" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -481,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zoc-dG-hwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3484" y="-24.7376311844078"/>
+            <point key="canvasLocation" x="3577" y="30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sBf-j5-tiX">

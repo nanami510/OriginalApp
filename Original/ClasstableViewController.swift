@@ -39,7 +39,7 @@ class ClasstableViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     //3
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scell", for: indexPath as IndexPath) as! ClasstableCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! ClasstableCollectionViewCell
         
         if (indexPath.row % 7 == 0) {
             cell.textLabel.textColor = UIColor.lightRed()
@@ -47,8 +47,9 @@ class ClasstableViewController: UIViewController, UICollectionViewDelegate, UICo
         //テキスト配置
         if indexPath.section == 0 {
             cell.textWeekLabel.text = weekArray[indexPath.row]
-            
+            cell.textLabel.text = ""
         } else {
+            cell.textWeekLabel.text = ""
             cell.textLabel.text = "aiueokakikukeko"
             let realm = try! Realm()
             let timetableCollection = realm.objects(TimeTable.self)
@@ -70,7 +71,7 @@ class ClasstableViewController: UIViewController, UICollectionViewDelegate, UICo
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfMargin: CGFloat = 8.0
-        let width: CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin) / 7.0
+        let width: CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin) / CGFloat(7)
         let height: CGFloat = width * 1.0
         // 🔴修正前 CGSizeMake(width, height)
         return CGSize(width: width, height: height)
