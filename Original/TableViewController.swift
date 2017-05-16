@@ -30,72 +30,24 @@ class TableViewController: UITableViewController {
         performSegue(withIdentifier: "goCreate", sender: nil)
     }
     
-   /* override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let realm = try! Realm()
-            let todoCollection = realm.objects(Todo.self)
-            let todo = todoCollection[indexPath.row]
-            try! realm.write({
-                todo.deleate = 1
-            })
-           tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }*/
-    
-   /* override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
-        if(editingStyle == UITableViewCellEditingStyle.delete) {
-            do{
-                let realm = try Realm()
-                try realm.write {
-                    let todoCollection = realm.objects(Todo.self)
-                    let todo = todoCollection[indexPath.row]
-                    try! realm.write({
-                        todo.deleate = 1
-                    })
-
-                }
-                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.fade)
-            }catch{
-            }
-            tableView.reloadData()
-        }
-    }*/
-   /* override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let realm = try! Realm()
-            let todoCollection = realm.objects(Todo.self)
-            let todo = todoCollection[indexPath.row]
-            try! realm.write({
-                todo.deleate = 1
-            })
-
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }*/
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "削除") { (action, index) -> Void in
-            let realm = try!Realm()
-            let todo  = realm.objects(Todo.self)
-            try! realm.write {
-                todo[index.row].deleate = 1
-            }
-
-            
-        }
-        deleteButton.backgroundColor = UIColor.red
-        
-        return [deleteButton]
-        
-    }
  
-
-
+   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+           
+                    let todoCollection = realm.objects(Todo.self)
+                    
+                    // Realmに保存されているTodo型のobjectsを取得。
+                    let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
+                    let element = todo[indexPath.row]
+                    try! realm.write {
+                        element.deleate=1
+                    }
+             self.tableView.reloadData()
+        }
+    }
     
-  
-    override func didReceiveMemoryWarning() {
+       override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
@@ -110,7 +62,7 @@ class TableViewController: UITableViewController {
         let todoCollection = realm.objects(Todo.self)
         
         // Realmに保存されているTodo型のobjectsを取得。
-        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
+        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
                 return todo.count // 総todo数を返している
     }
     
@@ -118,11 +70,8 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let todoCollection = realm.objects(Todo.self)
         // Realmに保存されているTodo型のobjectsを取得。
-        
-       // dateFormat.dateFormat = "yyyy年MM月dd日"
-       // let selectordate = dateFormat.date(from: selectedDay)
 
-        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "id", ascending: true)
+        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
         if todo.count != 0   {
          cell.textLabel?.text = todo[indexPath.row].title+"  (開始時間:"+todo[indexPath.row].starttime+")"
         return cell
@@ -130,6 +79,29 @@ class TableViewController: UITableViewController {
             return cell
         }
     }
+    
+    
+
+ /*func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            
+            // これはRealmSwiftでデータを削除しているケース
+            let todoCollection = realm.objects(Todo.self)
+            let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
+            let deleteHistory = todo[indexPath.row]
+            // トランザクションを開始してオブジェクトを削除します
+            try! realm.write {
+                deleteHistory.deleate = 1
+            }
+            
+            
+            // TableViewを再読み込み.
+            self.tableView.reloadData()
+            
+            
+        }
+    }*/
 }
 
     
