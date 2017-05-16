@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E09382D1EB5B61E000B6900 /* hamburger02.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1E09382C1EB5B61E000B6900 /* hamburger02.gif */; };
-		1E372CEB1ECB369B00C5B4E2 /* OneDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E372CEA1ECB369B00C5B4E2 /* OneDayCollectionViewCell.swift */; };
+		1E372CED1ECB442900C5B4E2 /* OneDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E372CEC1ECB442900C5B4E2 /* OneDayViewController.swift */; };
 		1E65E71B1EC8783E00AE9162 /* ClasstableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E65E71A1EC8783E00AE9162 /* ClasstableViewController.swift */; };
 		1E65E71D1EC8881100AE9162 /* ClasstableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E65E71C1EC8881100AE9162 /* ClasstableCollectionViewCell.swift */; };
 		1EC324CF1EB4599A001E5AE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324CE1EB4599A001E5AE9 /* AppDelegate.swift */; };
@@ -52,7 +52,7 @@
 /* Begin PBXFileReference section */
 		03313603A6D86EF6C38BCD47 /* Pods-Original.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Original.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Original/Pods-Original.debug.xcconfig"; sourceTree = "<group>"; };
 		1E09382C1EB5B61E000B6900 /* hamburger02.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = hamburger02.gif; path = ../../hamburger02.gif; sourceTree = "<group>"; };
-		1E372CEA1ECB369B00C5B4E2 /* OneDayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneDayCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E372CEC1ECB442900C5B4E2 /* OneDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneDayViewController.swift; sourceTree = "<group>"; };
 		1E65E71A1EC8783E00AE9162 /* ClasstableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClasstableViewController.swift; sourceTree = "<group>"; };
 		1E65E71C1EC8881100AE9162 /* ClasstableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClasstableCollectionViewCell.swift; sourceTree = "<group>"; };
 		1EC324CB1EB4599A001E5AE9 /* Original.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Original.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,8 +118,8 @@
 		1EC324C21EB4599A001E5AE9 = {
 			isa = PBXGroup;
 			children = (
+				1E372CEC1ECB442900C5B4E2 /* OneDayViewController.swift */,
 				1EEA9C951EBEF60600F0C826 /* CreateViewController.swift */,
-				1E372CEA1ECB369B00C5B4E2 /* OneDayCollectionViewCell.swift */,
 				1EC324CD1EB4599A001E5AE9 /* Original */,
 				1EC324E21EB4599A001E5AE9 /* OriginalTests */,
 				1EC324ED1EB4599A001E5AE9 /* OriginalUITests */,
@@ -501,8 +501,8 @@
 				1EC325091EB46120001E5AE9 /* DateManager.swift in Sources */,
 				1EC324FD1EB459DE001E5AE9 /* RootViewController.swift in Sources */,
 				1EC325071EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift in Sources */,
-				1E372CEB1ECB369B00C5B4E2 /* OneDayCollectionViewCell.swift in Sources */,
 				1EE889631EB47792003B330E /* DetailDayViewController.swift in Sources */,
+				1E372CED1ECB442900C5B4E2 /* OneDayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

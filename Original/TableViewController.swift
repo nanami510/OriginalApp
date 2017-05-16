@@ -12,6 +12,8 @@ import RealmSwift
 class TableViewController: UITableViewController {
     var selectedDate:String!
     let dateFormat = DateFormatter()
+    var selectedID:Int!
+    
    
     let realm = try! Realm() //いつもの
     
@@ -29,7 +31,29 @@ class TableViewController: UITableViewController {
     func goCreate() {
         performSegue(withIdentifier: "goCreate", sender: nil)
     }
-    
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "goOneDay") {
+            let oneDayVC: OneDayViewController = (segue.destination as? OneDayViewController)!
+            // ViewControllerのtextVC2にメッセージを設定
+            oneDayVC.selectedID=selectedID
+        }
+    }
+
+    override func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
+        // [indexPath.row] から画像名を探し、UImage を設定
+        selectedID=nil
+        let todoCollection = realm.objects(Todo.self)
+        // Realmに保存されているTodo型のobjectsを取得。
+        
+        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
+        selectedID=todo[indexPath.row].id
+        
+        if selectedID != nil {
+            // SubViewController へ遷移するために Segue を呼び出す
+             performSegue(withIdentifier: "goOneDay",sender: nil)
+        }
+    }
  
    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

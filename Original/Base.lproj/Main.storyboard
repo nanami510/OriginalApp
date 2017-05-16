@@ -112,6 +112,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="Tx6-Cl-Vcp" kind="show" identifier="goCreate" id="4Pn-WU-koa"/>
+                        <segue destination="WuO-5h-y0Y" kind="show" identifier="goOneDay" id="7Hy-pK-FZo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Za5-Gw-7gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,7 +231,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTH-Yv-XnV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597.5999999999999" y="841.52923538230891"/>
+            <point key="canvasLocation" x="2604" y="1331"/>
+        </scene>
+        <!--One Day View Controller-->
+        <scene sceneID="b3S-pN-aSU">
+            <objects>
+                <viewController id="WuO-5h-y0Y" customClass="OneDayViewController" customModule="Original" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="20v-AO-HQB"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ro6-AR-a8b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z0e-a5-2Jn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwM-oE-H1Z">
+                                <rect key="frame" x="166" y="93" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="text" destination="hwM-oE-H1Z" id="qtb-6e-RPA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugS-3U-bUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3426" y="842"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="a9r-hs-JTF">
