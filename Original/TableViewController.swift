@@ -13,9 +13,15 @@ class TableViewController: UITableViewController {
     var selectedDate:String!
     let dateFormat = DateFormatter()
     var selectedID:Int!
+    let weekOfComp=Calendar.Component.weekday
+    let weekArray = ["","日","月","火","水","木","金","土"]
+
+
+    
     
    
     let realm = try! Realm() //いつもの
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,30 +50,57 @@ class TableViewController: UITableViewController {
         // [indexPath.row] から画像名を探し、UImage を設定
         selectedID=nil
         let todoCollection = realm.objects(Todo.self)
+        
         // Realmに保存されているTodo型のobjectsを取得。
+       
         
         let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
-        selectedID=todo[indexPath.row].id
-        
-        if selectedID != nil {
-            // SubViewController へ遷移するために Segue を呼び出す
-             performSegue(withIdentifier: "goOneDay",sender: nil)
+        let timetableCollection = realm.objects(TimeTable.self)
+        let weekday = NSCalendar.current.component(weekOfComp, from: dateOfSelectedDay)
+        let youbi = weekArray[weekday]
+        let timetable = timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)
+        if indexPath.row < timetable.count {
+          //  let element = timetable[indexPath.row]
+            
+        }else{
+            let element = todo[indexPath.row - timetable.count]
+            selectedID = element.id
+            if selectedID != nil {
+                // SubViewController へ遷移するために Segue を呼び出す
+                performSegue(withIdentifier: "goOneDay",sender: nil)
+            }
+            
+            
         }
+        
     }
  
    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
            
-                    let todoCollection = realm.objects(Todo.self)
+           let todoCollection = realm.objects(Todo.self)
                     
                     // Realmに保存されているTodo型のobjectsを取得。
-                    let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
-                    let element = todo[indexPath.row]
-                    try! realm.write {
-                        element.deleate=1
-                    }
-             self.tableView.reloadData()
+           let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
+            
+           let timetableCollection = realm.objects(TimeTable.self)
+           let weekday = NSCalendar.current.component(weekOfComp, from: dateOfSelectedDay)
+           let youbi = weekArray[weekday]
+           let timetable = timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)
+           if indexPath.row < timetable.count {
+                    let element = timetable[indexPath.row]
+            try! realm.write {
+                element.deleate=1
+            }
+            }else{
+                let element = todo[indexPath.row - timetable.count]
+                try! realm.write {
+                    element.deleate=1
+                }
+
+            }
+            
+            self.tableView.reloadData()
         }
     }
     
@@ -87,21 +120,34 @@ class TableViewController: UITableViewController {
         
         // Realmに保存されているTodo型のobjectsを取得。
         let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
-                return todo.count // 総todo数を返している
+        let timetableCollection = realm.objects(TimeTable.self)
+        let weekday = NSCalendar.current.component(weekOfComp, from: dateOfSelectedDay)
+        let youbi = weekArray[weekday]
+        let timetable = timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)
+                return todo.count + timetable.count // 総todo数を返している
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let todoCollection = realm.objects(Todo.self)
+        let timetableCollection = realm.objects(TimeTable.self)
+        let weekday = NSCalendar.current.component(weekOfComp, from: dateOfSelectedDay)
+        let youbi = weekArray[weekday]
+        let timetable = timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)
         // Realmに保存されているTodo型のobjectsを取得。
 
         let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
-        if todo.count != 0   {
-         cell.textLabel?.text = todo[indexPath.row].title+"  (開始時間:"+todo[indexPath.row].starttime+")"
-        return cell
-        } else {
-            return cell
+        if indexPath.row < timetable.count {
+            if timetable.count != 0   {
+                cell.textLabel?.text = timetable[indexPath.row].dayOfTheWeek + "曜 " + String(timetable[indexPath.row].period) + " 限 " + timetable[indexPath.row].title
+            }
+            
+
+        } else if  indexPath.row < timetable.count + todo.count {
+            cell.textLabel?.text  = todo[indexPath.row - timetable.count].title+"  (開始時間:"+todo[indexPath.row - timetable.count].starttime+")"
+
         }
+       return cell
     }
     
     
