@@ -39,6 +39,7 @@ class OneDayViewController: UIViewController, UITextFieldDelegate {
         let todo = todoCollection.filter("id  == %@",selectedID )
         if todo.count != 0 {
         self.textField.text=todo[0].title
+            textView.text = todo[0].memo
         }
         
         start.delegate = self
@@ -186,6 +187,7 @@ class OneDayViewController: UIViewController, UITextFieldDelegate {
                 todo.id=(realm.objects(Todo.self).max(ofProperty: "id") as Int? ?? 0) + 1
                 todo.memo = memo
             }
+            
             self.dismiss(animated: true, completion: nil)
         }
     }

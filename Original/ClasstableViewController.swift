@@ -5,26 +5,137 @@
 //  Created by 後藤奈々美 on 2017/05/14.
 //  Copyright © 2017年 litech. All rights reserved.
 //
+extension UIView {
+    
+    enum BorderPosition {
+        case Top
+        case Right
+        case Bottom
+        case Left
+    }
+    
+    func border(borderWidth: CGFloat, borderColor: UIColor?, borderRadius: CGFloat?) {
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor?.cgColor
+        if let _ = borderRadius {
+            self.layer.cornerRadius = borderRadius!
+        }
+        self.layer.masksToBounds = true
+    }
+    
+    func border(positions: [BorderPosition], borderWidth: CGFloat, borderColor: UIColor?) {
+        
+        let topLine = CALayer()
+        let leftLine = CALayer()
+        let bottomLine = CALayer()
+        let rightLine = CALayer()
+        
+        self.layer.sublayers = nil
+        self.layer.masksToBounds = true
+        
+        if let _ = borderColor {
+            topLine.backgroundColor = borderColor!.cgColor
+            leftLine.backgroundColor = borderColor!.cgColor
+            bottomLine.backgroundColor = borderColor!.cgColor
+            rightLine.backgroundColor = borderColor!.cgColor
+        } else {
+            topLine.backgroundColor = UIColor.white.cgColor
+            leftLine.backgroundColor = UIColor.white.cgColor
+            bottomLine.backgroundColor = UIColor.white.cgColor
+            rightLine.backgroundColor = UIColor.white.cgColor
+        }
+        
+        if positions.contains(.Top) {
+            topLine.frame = CGRect(x:0.0, y:0.0, width:self.frame.width, height:borderWidth)
+            self.layer.addSublayer(topLine)
+        }
+        if positions.contains(.Left) {
+            leftLine.frame = CGRect(x:0.0,y: 0.0, width:borderWidth,height: self.frame.height)
+            self.layer.addSublayer(leftLine)
+        }
+        if positions.contains(.Bottom) {
+            bottomLine.frame = CGRect(x:0.0,y: self.frame.height - borderWidth, width:self.frame.width, height:borderWidth)
+            self.layer.addSublayer(bottomLine)
+        }
+        if positions.contains(.Right) {
+            rightLine.frame = CGRect(x:self.frame.width - borderWidth, y:0.0,width: borderWidth, height:self.frame.height)
+            self.layer.addSublayer(rightLine)
+        }
+        
+    }
+    
+    @IBInspectable
+    var borderWidth: CGFloat {
+        get {
+            return self.layer.borderWidth
+        }
+        set {
+            self.layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable
+    var borderColor: UIColor? {
+        get {
+            if let _ = self.layer.borderColor {
+                return UIColor(cgColor: self.layer.borderColor!)
+            }
+            return nil
+        }
+        set {
+            self.layer.borderColor = newValue?.cgColor
+        }
+    }
+    
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return self.layer.cornerRadius
+        }
+        set {
+            self.layer.cornerRadius = newValue
+        }
+    }
+    
+}
 
 import UIKit
 import RealmSwift
 
-class ClasstableViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
-     let weekArray = ["Period","Mon","Tue","Wed","Thu","Fri","Sat"]
+class ClasstableViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-     let cellMargin: CGFloat = 2.0
-     @IBOutlet weak var classtableCollectionView: UICollectionView!
-
+    let realm = try! Realm() //いつもの
+    let daysPerWeek: Int = 7
+    let cellMargin: CGFloat = 2.0
+    
+    
+    let weekArray = ["限","月","火","水","木","金","土"]
+    
+    
+    
+    
+    
+    @IBOutlet weak var CollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        CollectionView.delegate = self
+        CollectionView.dataSource = self
+        CollectionView.backgroundColor = UIColor.white
+        CollectionView.reloadData()
+        // 🔴修正前 (date: selectedDate)
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //1
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -43,30 +154,67 @@ class ClasstableViewController: UIViewController, UICollectionViewDelegate, UICo
         
         if (indexPath.row % 7 == 0) {
             cell.textLabel.textColor = UIColor.lightRed()
+            cell.textWeekLabel.textColor = UIColor.lightRed()
+        } else {
+            cell.textLabel.textColor = UIColor.gray
+            cell.textWeekLabel.textColor = UIColor.gray
         }
         //テキスト配置
         if indexPath.section == 0 {
             cell.textWeekLabel.text = weekArray[indexPath.row]
-            cell.textLabel.text = ""
+            cell.textLabel.text=""
+            
         } else {
-            cell.textWeekLabel.text = ""
-            cell.textLabel.text = "aiueokakikukeko"
-            let realm = try! Realm()
-            let timetableCollection = realm.objects(TimeTable.self)
-            /*
-            // Realmに保存されているTodo型のobjectsを取得。
-            let timetable = timetableCollection.filter("date  == %@",serchday!).filter("deleate  == 0")
-            if todo.count > 1 {
-                cell.textTitleLabel.text = todo[0].title
-                cell.textTitle2Label.text = todo[1].title
-            } else if todo.count != 0 {
-                cell.textTitleLabel.text = todo[0].title
+            
+            cell.textLabel.text=""
+            if (indexPath.row % 7 == 0) {
+            cell.textWeekLabel.text = String(indexPath.row / 7 )
+            } else  {
+               let timetableCollection = realm.objects(TimeTable.self)
+                let youbi = weekArray[indexPath.row % 7]
+                var periodserch:Int!
+                    periodserch = ( ( indexPath.row - ( indexPath.row % 7 ) ) / 7 )
+                let timetable = timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").filter("period  == %@",periodserch)
+                if timetable.count != 0{
+                cell.textWeekLabel.text = timetable[0].title
+                }
             }
-            //月によって1日の場所は異なる*/
+            
+           
         }
+        cell.textWeekLabel.border(positions:[.Top,.Left,.Right,.Bottom],borderWidth:1,borderColor:UIColor.black)
         return cell
     }
     
+    
+    //セルのサイズを設定
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let numberOfMargin: CGFloat = 8.0
+        let width: CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin) / CGFloat(daysPerWeek)
+        let height: CGFloat = width * 1.0
+        // 🔴修正前 CGSizeMake(width, height)
+        return CGSize(width: width, height: height)
+    }
+    //セルの垂直方向のマージンを設定
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return cellMargin
+    }
+    
+    //セルの水平方向のマージンを設定
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return cellMargin
+    }
+    
+    
+        //3
+    /* func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = UIColor.cyan
+     
+     
+     
+        return cell
+    }
     
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -104,7 +252,7 @@ class ClasstableViewController: UIViewController, UICollectionViewDelegate, UICo
             performSegue(withIdentifier: "toTableViewController",sender: nil)
             
             
-        }
+        }*/
  
         
     }*/
@@ -119,5 +267,4 @@ class ClasstableViewController: UIViewController, UICollectionViewDelegate, UICo
         // Pass the selected object to the new view controller.
     }
     */
-
-}
+ }
