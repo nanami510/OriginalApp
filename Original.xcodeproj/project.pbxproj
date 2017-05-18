@@ -30,6 +30,7 @@
 		1EEA9C941EBEF54D00F0C826 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA9C931EBEF54D00F0C826 /* TableViewController.swift */; };
 		1EEA9C961EBEF60600F0C826 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA9C951EBEF60600F0C826 /* CreateViewController.swift */; };
 		1EEE65DA1ECDE73600D882FD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE65D91ECDE73600D882FD /* icon.png */; };
+		1EEE65DC1ECDEB1100D882FD /* DetailClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEE65DB1ECDEB1100D882FD /* DetailClassViewController.swift */; };
 		1EF0BE151EC9DD300066660C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF0BE131EC9DD300066660C /* Main.storyboard */; };
 		4C6863C1B3BA847BE435D564 /* Pods_OriginalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6F103D67302BF68EC50825 /* Pods_OriginalUITests.framework */; };
 		9BD02A2A52EE2FE9540D8C49 /* Pods_OriginalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A299F2A3F5BB5A735D78EC34 /* Pods_OriginalTests.framework */; };
@@ -84,6 +85,7 @@
 		1EEA9C931EBEF54D00F0C826 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		1EEA9C951EBEF60600F0C826 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		1EEE65D91ECDE73600D882FD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		1EEE65DB1ECDEB1100D882FD /* DetailClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailClassViewController.swift; sourceTree = "<group>"; };
 		1EF0BE141EC9DD300066660C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2AA25DFAE5E46FE83CA375CB /* Pods_Original.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Original.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEFBCEC5B975DEE99F76AEC /* Pods-OriginalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OriginalTests/Pods-OriginalTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				1EEA9C931EBEF54D00F0C826 /* TableViewController.swift */,
 				1EC324FC1EB459DE001E5AE9 /* RootViewController.swift */,
 				1EF0BE131EC9DD300066660C /* Main.storyboard */,
+				1EEE65DB1ECDEB1100D882FD /* DetailClassViewController.swift */,
 				1EE6584A1ECD471A008F6395 /* Castom.swift */,
 				1EC324FE1EB459F2001E5AE9 /* ContentViewController.swift */,
 				1EE6584E1ECD492B008F6395 /* TrashTableViewController.swift */,
@@ -506,6 +509,7 @@
 			files = (
 				1EEA9C961EBEF60600F0C826 /* CreateViewController.swift in Sources */,
 				1EE6584F1ECD492B008F6395 /* TrashTableViewController.swift in Sources */,
+				1EEE65DC1ECDEB1100D882FD /* DetailClassViewController.swift in Sources */,
 				1EC324FF1EB459F2001E5AE9 /* ContentViewController.swift in Sources */,
 				1EC325031EB45A69001E5AE9 /* MenuViewController.swift in Sources */,
 				1EC325011EB45A0B001E5AE9 /* RegisterViewController.swift in Sources */,

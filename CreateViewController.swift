@@ -34,12 +34,14 @@ class TimeTable: Object {
 
 class Note:Object{
     dynamic var id: Int = 0
-    dynamic var title = ""
-    dynamic var dayOfTheWeek = ""
-    dynamic var period: Int = 0
-    dynamic var date = ""
+    dynamic var timetable_id: Int = 0
+    dynamic var date = NSDate()
+    dynamic var memo = ""
+    dynamic var attendance: Int = 0
     dynamic var createdAt = NSDate()
     dynamic var deleate: Int = 0
+    dynamic var edit: Int = 0
+    dynamic var edit_id: Int = 0
 }
 
 

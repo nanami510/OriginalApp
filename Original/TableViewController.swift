@@ -15,6 +15,10 @@ class TableViewController: UITableViewController {
     var selectedID:Int!
     let weekOfComp=Calendar.Component.weekday
     let weekArray = ["","日","月","火","水","木","金","土"]
+    var selectedtimetableID:Int!
+    var selectclassdate:NSDate!
+    var titleofclass:String!
+    var selectedyoubi:String!
 
 
     
@@ -37,12 +41,20 @@ class TableViewController: UITableViewController {
     func goCreate() {
         performSegue(withIdentifier: "goCreate", sender: nil)
     }
-   
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goOneDay") {
             let oneDayVC: OneDayViewController = (segue.destination as? OneDayViewController)!
             // ViewControllerのtextVC2にメッセージを設定
             oneDayVC.selectedID=selectedID
+        }else if(segue.identifier == "goCreateNote"){
+            let detailclassVC: DetailClassViewController = (segue.destination as? DetailClassViewController)!
+            detailclassVC.timetableID=selectedtimetableID
+            dateFormat.dateFormat = "yyyy年MM月dd日"
+            detailclassVC.classdate = selectclassdate
+            detailclassVC.titleOfclass=titleofclass
+            detailclassVC.youbi = selectedyoubi
+            
         }
     }
 
@@ -60,14 +72,19 @@ class TableViewController: UITableViewController {
         let youbi = weekArray[weekday]
         let timetable = timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)
         if indexPath.row < timetable.count {
-          //  let element = timetable[indexPath.row]
+            let element = timetable[indexPath.row]
+            selectedtimetableID = element.id
+            selectclassdate=dateOfSelectedDay as NSDate!
+            titleofclass=element.title
+            selectedyoubi=element.dayOfTheWeek
+            performSegue(withIdentifier: "goCreateNote",sender: self.selectedID)
             
         }else{
             let element = todo[indexPath.row - timetable.count]
             selectedID = element.id
             if selectedID != nil {
                 // SubViewController へ遷移するために Segue を呼び出す
-                performSegue(withIdentifier: "goOneDay",sender: nil)
+                performSegue(withIdentifier: "goOneDay",sender: self.selectedID)
             }
             
             
