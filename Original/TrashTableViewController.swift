@@ -22,7 +22,7 @@ class TrashTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+   /* override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
             let todoCollection = realm.objects(Todo.self)
@@ -47,6 +47,37 @@ class TrashTableViewController: UITableViewController {
             
             self.tableView.reloadData()
         }
+    }*/
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "復元") { (action, index) -> Void in
+            let realm = try! Realm()
+            let todoCollection = realm.objects(Todo.self)
+            
+            // Realmに保存されているTodo型のobjectsを取得。
+            let todo = todoCollection.filter("deleate  == 1").sorted(byKeyPath: "date", ascending: true)
+            
+            let timetableCollection = realm.objects(TimeTable.self)
+            let timetable = timetableCollection.filter("deleate  == 1").sorted(byKeyPath: "period", ascending: true)
+            if indexPath.row < timetable.count {
+                let element = timetable[indexPath.row]
+                try! realm.write {
+                    element.deleate=0
+                }
+            }else{
+                let element = todo[indexPath.row - timetable.count]
+                try! realm.write {
+                    element.deleate=0
+                }
+                
+            }
+        
+            self.tableView.reloadData()
+            
+        }
+        deleteButton.backgroundColor = UIColor.red
+        
+        return [deleteButton]
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,7 +102,7 @@ class TrashTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let todoCollection = realm.objects(Todo.self)
         let timetableCollection = realm.objects(TimeTable.self)
        

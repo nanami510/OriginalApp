@@ -140,6 +140,7 @@ class TableViewController: UITableViewController {
         if indexPath.row < timetable.count {
             if timetable.count != 0   {
                 cell.textLabel?.text = timetable[indexPath.row].dayOfTheWeek + "曜 " + String(timetable[indexPath.row].period) + " 限 " + timetable[indexPath.row].title
+                 cell.textLabel?.textColor=UIColor.lightRed()
             }
             
 

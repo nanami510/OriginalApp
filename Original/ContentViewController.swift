@@ -70,6 +70,7 @@ extension UIColor {
          override func viewDidAppear(_ animated:Bool) {
            //  loadView()
            // viewDidLoad()
+             calenderCollectionView.reloadData()
 
         }
         func numberOfSections(in collectionView: UICollectionView) -> Int {

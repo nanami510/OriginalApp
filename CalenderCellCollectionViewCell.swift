@@ -37,6 +37,7 @@ class CalenderCellCollectionViewCell: UICollectionViewCell {
         textTitle2Label.textAlignment = .center
         textTitle2Label.textColor=UIColor.purple
         
+        
         //cellに追加
         self.addSubview(textLabel!)
         self.addSubview(textWeekLabel!)
