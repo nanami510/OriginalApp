@@ -204,6 +204,10 @@ class ClasstableViewController:UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return cellMargin
     }
+    @IBAction func onTouchBootMenuButton(_ sender: UIButton) {
+        guard let rootViewController = rootViewController() else { return }
+        rootViewController.presentMenuViewController()
+    }
     
     
         //3

@@ -104,7 +104,7 @@ class TableViewController: UITableViewController {
         }
     }
     
-       override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
@@ -119,7 +119,7 @@ class TableViewController: UITableViewController {
         let todoCollection = realm.objects(Todo.self)
         
         // Realmに保存されているTodo型のobjectsを取得。
-        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
+        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay as NSDate).filter("deleate  == 0").filter("edit  == 0").sorted(byKeyPath: "starttime", ascending: true)
         let timetableCollection = realm.objects(TimeTable.self)
         let weekday = NSCalendar.current.component(weekOfComp, from: dateOfSelectedDay)
         let youbi = weekArray[weekday]
@@ -136,7 +136,7 @@ class TableViewController: UITableViewController {
         let timetable = timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)
         // Realmに保存されているTodo型のobjectsを取得。
 
-        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
+        let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").filter("edit  == 0").sorted(byKeyPath: "starttime", ascending: true)
         if indexPath.row < timetable.count {
             if timetable.count != 0   {
                 cell.textLabel?.text = timetable[indexPath.row].dayOfTheWeek + "曜 " + String(timetable[indexPath.row].period) + " 限 " + timetable[indexPath.row].title
@@ -152,82 +152,9 @@ class TableViewController: UITableViewController {
     
     
 
- /*func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            
-            
-            // これはRealmSwiftでデータを削除しているケース
-            let todoCollection = realm.objects(Todo.self)
-            let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
-            let deleteHistory = todo[indexPath.row]
-            // トランザクションを開始してオブジェクトを削除します
-            try! realm.write {
-                deleteHistory.deleate = 1
-            }
-            
-            
-            // TableViewを再読み込み.
-            self.tableView.reloadData()
-            
-            
-        }
-    }*/
+
 }
 
-    
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 

@@ -23,11 +23,18 @@ class MenuViewController : UIViewController {
         rootViewController.set(contentViewController: profileViewController)
     }
     
-    @IBAction func onTouchProfileButton(_ sender: UIButton) {
+    @IBAction func onTouchRegisterButton(_ sender: UIButton) {
         guard let rootViewController = rootViewController() else {return }
         rootViewController.dismissMenuViewController()
         
         let registerViewController = self.storyboard!.instantiateViewController(withIdentifier: "register")
         rootViewController.set(contentViewController: registerViewController)
+    }
+    @IBAction func onTouchTimeTableButton(_ sender: UIButton) {
+        guard let rootViewController = rootViewController() else {return }
+        rootViewController.dismissMenuViewController()
+        
+        let timeTableViewController = self.storyboard!.instantiateViewController(withIdentifier: "timetable")
+        rootViewController.set(contentViewController: timeTableViewController)
     }
 }

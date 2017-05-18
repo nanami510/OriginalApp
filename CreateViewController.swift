@@ -18,6 +18,8 @@ class Todo: Object {
     dynamic var memo = ""
     dynamic var createdAt = NSDate()
     dynamic var deleate: Int = 0
+    dynamic var edit: Int = 0
+    dynamic var edit_id: Int = 0
         }
 
 class TimeTable: Object {
@@ -214,6 +216,36 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
         }
     }
+    @IBAction func createButton() {
+        let realm = try! Realm()
+        if let title = textField.text, let date = dateFormat.date(from: dateSelecter.text!) , let starttime=start.text,let endtime=end.text,let memo = textView.text{
+            
+            let todo = Todo()
+            todo.title = title
+            todo.date = date as NSDate
+            todo.starttime = starttime
+            todo.endtime = endtime
+            todo.id=(realm.objects(Todo.self).max(ofProperty: "id") as Int? ?? 0) + 1
+            todo.memo = memo
+            try! realm.write {
+                realm.add(todo)
+            }
+            
+            let alert = UIAlertController(title:"Complete!", message: "予定: "+title+" を追加しました。", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                (action: UIAlertAction!) in
+                
+            })
+            
+            alert.addAction(action)
+            textField.text=nil
+            textView.text=nil
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+    }
+
     
     
 }

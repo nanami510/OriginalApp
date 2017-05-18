@@ -175,20 +175,35 @@ class OneDayViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func save(_sender: Any) {
+    @IBAction func save() {
         let todoCollection = realm.objects(Todo.self)
         let todo = todoCollection.filter("id  == %@",selectedID )[0]
         if let title = textField.text, let date = dateFormat.date(from: dateSelecter.text!) , let starttime=start.text,let endtime=end.text,let memo = textView.text{
+            let todos = Todo()
+            todos.title = title
+            todos.date = date as NSDate
+            todos.starttime = starttime
+            todos.endtime = endtime
+            todos.id=(realm.objects(Todo.self).max(ofProperty: "id") as Int? ?? 0) + 1
+            todos.memo = memo
+            todos.edit_id=todo.id
             try! realm.write {
-                todo.title = title
-                todo.date = date as NSDate
-                todo.starttime = starttime
-                todo.endtime = endtime
-                todo.id=(realm.objects(Todo.self).max(ofProperty: "id") as Int? ?? 0) + 1
-                todo.memo = memo
+                todo.edit = 1
+                realm.add(todos)
             }
+           
             
-            self.dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title:"Complete!", message: "予定: "+title+" を更新しました。", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                (action: UIAlertAction!) in
+                
+            })
+            
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+
+           
         }
     }
     

@@ -37,8 +37,8 @@ class RegisterViewController: UIViewController, UIPickerViewDataSource, UIPicker
             realm.add(timetable)
         
         }
-        self.dismiss(animated: true, completion: nil)
-            let alert = UIAlertController(title:"Complete!", message: "講義:"+title+"を追加しました。", preferredStyle: UIAlertControllerStyle.alert)
+        
+            let alert = UIAlertController(title:"Complete!", message: "講義: "+title+" を追加しました。", preferredStyle: UIAlertControllerStyle.alert)
             
             let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
                 (action: UIAlertAction!) in

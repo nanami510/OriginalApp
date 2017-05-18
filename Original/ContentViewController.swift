@@ -49,6 +49,7 @@ extension UIColor {
         @IBOutlet weak var calenderHeaderView: UIView!
         @IBOutlet weak var calenderCollectionView: UICollectionView!
         
+        
         override func viewDidLoad() {
             super.viewDidLoad()
             
@@ -209,6 +210,8 @@ extension UIColor {
         }
         
         @IBAction func back (_segue:UIStoryboardSegue){
+            loadView()
+            viewDidLoad()
             
         }
         /*
