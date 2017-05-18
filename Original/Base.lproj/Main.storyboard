@@ -428,6 +428,35 @@
             </objects>
             <point key="canvasLocation" x="2105" y="815"/>
         </scene>
+        <!--Trash Table View Controller-->
+        <scene sceneID="fD2-ZK-W0r">
+            <objects>
+                <tableViewController id="jsH-Cd-RAK" customClass="TrashTableViewController" customModule="Original" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Kd-s0-KhA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nwp-gs-di8">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nwp-gs-di8" id="mqL-Pk-VSQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jsH-Cd-RAK" id="Isa-6x-XX5"/>
+                            <outlet property="delegate" destination="jsH-Cd-RAK" id="qV4-Bi-h8F"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="fyK-jp-MjR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="elw-9E-V0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2897" y="-591"/>
+        </scene>
         <!--Content View Controller-->
         <scene sceneID="a9r-hs-JTF">
             <objects>
@@ -528,6 +557,7 @@
                         <outlet property="headerNextBtn" destination="Qtj-8X-ltA" id="Wvf-yd-l3H"/>
                         <outlet property="headerPrevBtn" destination="vOk-uj-d05" id="yVy-ed-Za2"/>
                         <outlet property="headerTitle" destination="Qh3-F7-suc" id="RGT-q9-Ang"/>
+                        <segue destination="5Th-Ya-8BG" kind="presentation" identifier="gotrash" id="GGG-sX-g8F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QjS-H8-TbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,12 +627,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJE-Wd-P4l">
-                                <rect key="frame" x="272" y="585" width="77" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJE-Wd-P4l" customClass="Castom" customModule="Original" customModuleProvider="target">
+                                <rect key="frame" x="241" y="605" width="118" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="講義を追加">
                                     <color key="titleColor" red="0.6276224846045686" green="0.30628721635081546" blue="0.2472694891300781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addButtonWith_sender:" destination="AZu-SL-5qR" eventType="touchUpInside" id="ja7-UO-UWm"/>
                                 </connections>
@@ -618,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFZ-aR-ugb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2106" y="70"/>
+            <point key="canvasLocation" x="2855" y="70"/>
         </scene>
         <!--Classtable View Controller-->
         <scene sceneID="tEK-4V-JtI">
@@ -684,7 +725,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zoc-dG-hwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2796" y="70"/>
+            <point key="canvasLocation" x="3534" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sBf-j5-tiX">
@@ -703,6 +744,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkK-hj-OAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-81" y="815"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ItU-Tj-fag">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Th-Ya-8BG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sib-Wo-Egk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jsH-Cd-RAK" kind="relationship" relationship="rootViewController" id="fxO-NH-1A4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ADR-Oe-iCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2104.8000000000002" y="-590.55472263868069"/>
         </scene>
     </scenes>
     <resources>

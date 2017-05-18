@@ -67,7 +67,11 @@ extension UIColor {
             // Dispose of any resources that can be recreated.
         }
         //1
-        
+         override func viewDidAppear(_ animated:Bool) {
+           //  loadView()
+           // viewDidLoad()
+
+        }
         func numberOfSections(in collectionView: UICollectionView) -> Int {
             return 2
         }
@@ -165,8 +169,14 @@ extension UIColor {
                 
                 
             }
-            
-                   }
+        }
+        func goTrash() {
+            performSegue(withIdentifier: "gotrash", sender: nil)
+        }
+        
+        @IBAction func trash(){
+            goTrash()
+        }
         
                
         //headerの月を変更
@@ -204,15 +214,14 @@ extension UIColor {
             rootViewController.presentMenuViewController()
         }
         
-        @IBAction func onTouchCloseMenuButton(sender: UIButton) {
+        /*@IBAction func onTouchCloseMenuButton(sender: UIButton) {
             guard let rootViewController = rootViewController() else {return }
             rootViewController.dismissMenuViewController()
-        }
+        }*/
         
         @IBAction func back (_segue:UIStoryboardSegue){
-            loadView()
-            viewDidLoad()
-            
+           // loadView()
+            //viewDidLoad()
         }
         /*
          // MARK: - Navigation

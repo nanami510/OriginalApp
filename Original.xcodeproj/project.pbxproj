@@ -24,6 +24,8 @@
 		1EC325051EB45F36001E5AE9 /* menuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC325041EB45F36001E5AE9 /* menuButton.png */; };
 		1EC325071EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC325061EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift */; };
 		1EC325091EB46120001E5AE9 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC325081EB46120001E5AE9 /* DateManager.swift */; };
+		1EE6584B1ECD471A008F6395 /* Castom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6584A1ECD471A008F6395 /* Castom.swift */; };
+		1EE6584F1ECD492B008F6395 /* TrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6584E1ECD492B008F6395 /* TrashTableViewController.swift */; };
 		1EE889631EB47792003B330E /* DetailDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE889621EB47792003B330E /* DetailDayViewController.swift */; };
 		1EEA9C941EBEF54D00F0C826 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA9C931EBEF54D00F0C826 /* TableViewController.swift */; };
 		1EEA9C961EBEF60600F0C826 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA9C951EBEF60600F0C826 /* CreateViewController.swift */; };
@@ -75,6 +77,8 @@
 		1EC325041EB45F36001E5AE9 /* menuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuButton.png; path = ../menuButton.png; sourceTree = "<group>"; };
 		1EC325061EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalenderCellCollectionViewCell.swift; path = ../CalenderCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		1EC325081EB46120001E5AE9 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		1EE6584A1ECD471A008F6395 /* Castom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Castom.swift; sourceTree = "<group>"; };
+		1EE6584E1ECD492B008F6395 /* TrashTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableViewController.swift; sourceTree = "<group>"; };
 		1EE889621EB47792003B330E /* DetailDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDayViewController.swift; sourceTree = "<group>"; };
 		1EEA9C931EBEF54D00F0C826 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		1EEA9C951EBEF60600F0C826 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
@@ -151,7 +155,9 @@
 				1EEA9C931EBEF54D00F0C826 /* TableViewController.swift */,
 				1EC324FC1EB459DE001E5AE9 /* RootViewController.swift */,
 				1EF0BE131EC9DD300066660C /* Main.storyboard */,
+				1EE6584A1ECD471A008F6395 /* Castom.swift */,
 				1EC324FE1EB459F2001E5AE9 /* ContentViewController.swift */,
+				1EE6584E1ECD492B008F6395 /* TrashTableViewController.swift */,
 				1EE889621EB47792003B330E /* DetailDayViewController.swift */,
 				1EC325081EB46120001E5AE9 /* DateManager.swift */,
 				1EC325021EB45A69001E5AE9 /* MenuViewController.swift */,
@@ -495,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EEA9C961EBEF60600F0C826 /* CreateViewController.swift in Sources */,
+				1EE6584F1ECD492B008F6395 /* TrashTableViewController.swift in Sources */,
 				1EC324FF1EB459F2001E5AE9 /* ContentViewController.swift in Sources */,
 				1EC325031EB45A69001E5AE9 /* MenuViewController.swift in Sources */,
 				1EC325011EB45A0B001E5AE9 /* RegisterViewController.swift in Sources */,
@@ -504,6 +511,7 @@
 				1EC324CF1EB4599A001E5AE9 /* AppDelegate.swift in Sources */,
 				1EC325091EB46120001E5AE9 /* DateManager.swift in Sources */,
 				1EC324FD1EB459DE001E5AE9 /* RootViewController.swift in Sources */,
+				1EE6584B1ECD471A008F6395 /* Castom.swift in Sources */,
 				1EC325071EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift in Sources */,
 				1EE889631EB47792003B330E /* DetailDayViewController.swift in Sources */,
 				1E372CED1ECB442900C5B4E2 /* OneDayViewController.swift in Sources */,
