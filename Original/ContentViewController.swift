@@ -123,7 +123,7 @@ extension UIColor {
                 let todoCollection = realm.objects(Todo.self)
                 
                 // Realmに保存されているTodo型のobjectsを取得。
-                let todo = todoCollection.filter("date  == %@",serchday).filter("deleate  == 0").sorted(byKeyPath: "starttime", ascending: true)
+                let todo = todoCollection.filter("date  == %@",serchday).filter("deleate  == 0").filter("edit  == 0").sorted(byKeyPath: "starttime", ascending: true)
                  if todo.count > 1 {
                     cell.textTitleLabel.text =  todo[0].title
                     cell.textTitle2Label.text = todo[1].title

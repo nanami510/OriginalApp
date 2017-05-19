@@ -62,11 +62,8 @@ class DetailClassViewController: UIViewController {
             
             let alert = UIAlertController(title:"ノート保存しました。", message: "ちゃんと出席しましたか？", preferredStyle: UIAlertControllerStyle.alert)
             
-           /* let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-                (action: UIAlertAction!) in
-                
-            })*/
-            var dayofattendance = 0
+           
+            
          
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                 try! realm.write {
@@ -87,20 +84,11 @@ class DetailClassViewController: UIViewController {
                     realm.add(note)
                 }
             }))
+           
+
              self.present(alert, animated: true, completion: nil)
             
-            /*try! realm.write {
-                note.attendance = dayofattendance
-                if(notes.count != 0){
-                    notes[0].edit=1
-                }
-                realm.add(note)
-            }*/
-
-            
-            
-            
-           
+         
             
         }
     }

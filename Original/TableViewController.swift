@@ -159,7 +159,7 @@ class TableViewController: UITableViewController {
       
         if indexPath.row < timetable.count {
             if timetable.count != 0   {
-                let note = noteCollection.filter("timetable_id  == %@",timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)[indexPath.row].id)
+                let note = noteCollection.filter("timetable_id  == %@",timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)[indexPath.row].id).filter("deleate  == 0")
                 if(note.count != 0){
                 let sum: Int = note.sum(ofProperty: "attendance")
                 cell.textLabel?.text = timetable[indexPath.row].dayOfTheWeek + "曜 " + String(timetable[indexPath.row].period) + " 限 " + timetable[indexPath.row].title + "　出席:" + String(sum) + "回"
