@@ -152,11 +152,20 @@ class TableViewController: UITableViewController {
         let youbi = weekArray[weekday]
         let timetable = timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)
         // Realmに保存されているTodo型のobjectsを取得。
+        let noteCollection = realm.objects(Note.self)
+       
 
         let todo = todoCollection.filter("date  == %@",dateOfSelectedDay ).filter("deleate  == 0").filter("edit  == 0").sorted(byKeyPath: "starttime", ascending: true)
+      
         if indexPath.row < timetable.count {
             if timetable.count != 0   {
-                cell.textLabel?.text = timetable[indexPath.row].dayOfTheWeek + "曜 " + String(timetable[indexPath.row].period) + " 限 " + timetable[indexPath.row].title
+                let note = noteCollection.filter("timetable_id  == %@",timetableCollection.filter("dayOfTheWeek  == %@",youbi).filter("deleate  == 0").sorted(byKeyPath: "period", ascending: true)[indexPath.row].id)
+                if(note.count != 0){
+                let sum: Int = note.sum(ofProperty: "attendance")
+                cell.textLabel?.text = timetable[indexPath.row].dayOfTheWeek + "曜 " + String(timetable[indexPath.row].period) + " 限 " + timetable[indexPath.row].title + "　出席:" + String(sum) + "回"
+                }else{
+                     cell.textLabel?.text = timetable[indexPath.row].dayOfTheWeek + "曜 " + String(timetable[indexPath.row].period) + " 限 " + timetable[indexPath.row].title + "　出席:0回"
+                }
                  cell.textLabel?.textColor=UIColor.lightRed()
             }
             

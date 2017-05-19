@@ -15,6 +15,7 @@ class DetailClassViewController: UIViewController {
     var titleOfclass: String!
     var youbi: String!
     
+    
     @IBOutlet weak var titletext: UILabel!
     @IBOutlet weak var daytext: UILabel!
     @IBOutlet weak var notetext: UITextView!
@@ -58,24 +59,48 @@ class DetailClassViewController: UIViewController {
                  note.edit_id = notes[0].id
             }
            
-           
-            try! realm.write {
+            
+            let alert = UIAlertController(title:"ノート保存しました。", message: "ちゃんと出席しましたか？", preferredStyle: UIAlertControllerStyle.alert)
+            
+           /* let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                (action: UIAlertAction!) in
+                
+            })*/
+            var dayofattendance = 0
+         
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                try! realm.write {
+                    note.attendance = 1
+                    if(notes.count != 0){
+                        notes[0].edit=1
+                    }
+                    realm.add(note)
+                }
+
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
+                try! realm.write {
+                    note.attendance = 0
+                    if(notes.count != 0){
+                        notes[0].edit=1
+                    }
+                    realm.add(note)
+                }
+            }))
+             self.present(alert, animated: true, completion: nil)
+            
+            /*try! realm.write {
+                note.attendance = dayofattendance
                 if(notes.count != 0){
                     notes[0].edit=1
                 }
                 realm.add(note)
-            }
+            }*/
+
             
-            let alert = UIAlertController(title:"Complete!", message: "ノート保存しました。", preferredStyle: UIAlertControllerStyle.alert)
             
-            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-                (action: UIAlertAction!) in
-                
-            })
             
-            alert.addAction(action)
-            
-            self.present(alert, animated: true, completion: nil)
+           
             
         }
     }
