@@ -12,9 +12,10 @@
 		1E372CEF1ECB4DCB00C5B4E2 /* ごみ箱のフリーアイコン.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E372CEE1ECB4DCB00C5B4E2 /* ごみ箱のフリーアイコン.png */; };
 		1E65E71B1EC8783E00AE9162 /* ClasstableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E65E71A1EC8783E00AE9162 /* ClasstableViewController.swift */; };
 		1E65E71D1EC8881100AE9162 /* ClasstableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E65E71C1EC8881100AE9162 /* ClasstableCollectionViewCell.swift */; };
+		1E7E33341EDAFC05004938FC /* 3.5inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E7E33331EDAFC05004938FC /* 3.5inch.storyboard */; };
+		1E7E333A1EDB1BD4004938FC /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E33391EDB1BD4004938FC /* StoryboardHelper.swift */; };
 		1EC324CF1EB4599A001E5AE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324CE1EB4599A001E5AE9 /* AppDelegate.swift */; };
 		1EC324D61EB4599A001E5AE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC324D51EB4599A001E5AE9 /* Assets.xcassets */; };
-		1EC324D91EB4599A001E5AE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC324D71EB4599A001E5AE9 /* LaunchScreen.storyboard */; };
 		1EC324E41EB4599A001E5AE9 /* OriginalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324E31EB4599A001E5AE9 /* OriginalTests.swift */; };
 		1EC324EF1EB4599A001E5AE9 /* OriginalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324EE1EB4599A001E5AE9 /* OriginalUITests.swift */; };
 		1EC324FD1EB459DE001E5AE9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC324FC1EB459DE001E5AE9 /* RootViewController.swift */; };
@@ -61,10 +62,11 @@
 		1E372CEE1ECB4DCB00C5B4E2 /* ごみ箱のフリーアイコン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ごみ箱のフリーアイコン.png"; sourceTree = "<group>"; };
 		1E65E71A1EC8783E00AE9162 /* ClasstableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClasstableViewController.swift; sourceTree = "<group>"; };
 		1E65E71C1EC8881100AE9162 /* ClasstableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClasstableCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E7E33331EDAFC05004938FC /* 3.5inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 3.5inch.storyboard; sourceTree = "<group>"; };
+		1E7E33391EDB1BD4004938FC /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
 		1EC324CB1EB4599A001E5AE9 /* Original.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Original.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC324CE1EB4599A001E5AE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC324D51EB4599A001E5AE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1EC324D81EB4599A001E5AE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EC324DA1EB4599A001E5AE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EC324DF1EB4599A001E5AE9 /* OriginalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriginalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC324E31EB4599A001E5AE9 /* OriginalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTests.swift; sourceTree = "<group>"; };
@@ -157,9 +159,11 @@
 				1E65E71A1EC8783E00AE9162 /* ClasstableViewController.swift */,
 				1EC325061EB45FF0001E5AE9 /* CalenderCellCollectionViewCell.swift */,
 				1EC324CE1EB4599A001E5AE9 /* AppDelegate.swift */,
+				1E7E33391EDB1BD4004938FC /* StoryboardHelper.swift */,
 				1EEA9C931EBEF54D00F0C826 /* TableViewController.swift */,
 				1EC324FC1EB459DE001E5AE9 /* RootViewController.swift */,
 				1EF0BE131EC9DD300066660C /* Main.storyboard */,
+				1E7E33331EDAFC05004938FC /* 3.5inch.storyboard */,
 				1EEE65DB1ECDEB1100D882FD /* DetailClassViewController.swift */,
 				1EE6584A1ECD471A008F6395 /* Castom.swift */,
 				1EC324FE1EB459F2001E5AE9 /* ContentViewController.swift */,
@@ -170,7 +174,6 @@
 				1EC325001EB45A0B001E5AE9 /* RegisterViewController.swift */,
 				1E65E71C1EC8881100AE9162 /* ClasstableCollectionViewCell.swift */,
 				1EC324D51EB4599A001E5AE9 /* Assets.xcassets */,
-				1EC324D71EB4599A001E5AE9 /* LaunchScreen.storyboard */,
 				1EC324DA1EB4599A001E5AE9 /* Info.plist */,
 				1EC325041EB45F36001E5AE9 /* menuButton.png */,
 				1E09382C1EB5B61E000B6900 /* hamburger02.gif */,
@@ -338,10 +341,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EC324D91EB4599A001E5AE9 /* LaunchScreen.storyboard in Resources */,
 				1EEE65DA1ECDE73600D882FD /* icon.png in Resources */,
 				1EF0BE151EC9DD300066660C /* Main.storyboard in Resources */,
 				1EC324D61EB4599A001E5AE9 /* Assets.xcassets in Resources */,
+				1E7E33341EDAFC05004938FC /* 3.5inch.storyboard in Resources */,
 				1EC325051EB45F36001E5AE9 /* menuButton.png in Resources */,
 				1E372CEF1ECB4DCB00C5B4E2 /* ごみ箱のフリーアイコン.png in Resources */,
 				1E09382D1EB5B61E000B6900 /* hamburger02.gif in Resources */,
@@ -512,6 +515,7 @@
 				1EEE65DC1ECDEB1100D882FD /* DetailClassViewController.swift in Sources */,
 				1EC324FF1EB459F2001E5AE9 /* ContentViewController.swift in Sources */,
 				1EC325031EB45A69001E5AE9 /* MenuViewController.swift in Sources */,
+				1E7E333A1EDB1BD4004938FC /* StoryboardHelper.swift in Sources */,
 				1EC325011EB45A0B001E5AE9 /* RegisterViewController.swift in Sources */,
 				1EEA9C941EBEF54D00F0C826 /* TableViewController.swift in Sources */,
 				1E65E71B1EC8783E00AE9162 /* ClasstableViewController.swift in Sources */,
@@ -558,14 +562,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1EC324D71EB4599A001E5AE9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1EC324D81EB4599A001E5AE9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		1EF0BE131EC9DD300066660C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

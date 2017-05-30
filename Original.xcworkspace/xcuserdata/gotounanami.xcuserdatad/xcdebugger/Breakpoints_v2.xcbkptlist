@@ -2,4 +2,85 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Original/StoryboardHelper.swift"
+            timestampString = "517843176.251914"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "StoryboardHelper"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Original.StoryboardHelper.currentDevice.unsafeMutableAddressor : __ObjC.UIDevice"
+                  moduleName = "Original"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gotounanami/Desktop/%E7%B4%A0%E6%9D%90Swift3/Original/Original/StoryboardHelper.swift"
+                  timestampString = "517843270.084831"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Original.StoryboardHelper.currentDevice.getter : __ObjC.UIDevice"
+                  moduleName = "Original"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gotounanami/Desktop/%E7%B4%A0%E6%9D%90Swift3/Original/Original/StoryboardHelper.swift"
+                  timestampString = "517843270.086891"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Original.StoryboardHelper.currentDevice.setter : __ObjC.UIDevice"
+                  moduleName = "Original"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gotounanami/Desktop/%E7%B4%A0%E6%9D%90Swift3/Original/Original/StoryboardHelper.swift"
+                  timestampString = "517843270.088944"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Original/AppDelegate.swift"
+            timestampString = "517843214.787728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
