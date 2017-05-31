@@ -29,9 +29,12 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+
         dateFormat.dateFormat = "yyyy年MM月dd日"
         self.title=dateFormat.string(from: dateOfSelectedDay)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "予定追加", style: .plain, target: self, action: #selector(self.goCreate))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "＋", style: .plain, target: self, action: #selector(self.goCreate))
+        navigationItem.rightBarButtonItem?.tintColor=UIColor.gray
    //     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, //target: self, action: #selector(self.unwindToTop(segue:)))
         
     }

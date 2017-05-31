@@ -22,7 +22,7 @@ struct StoryboardHelper {
         }
         
         var storyboard = UIStoryboard()
-        if height == 667 {
+        if height == 667.0 {
             // iPhone6,6s,7,7s
             storyboard = UIStoryboard(name: "Main", bundle: nil)
         } else if height == 736 {

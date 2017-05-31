@@ -108,8 +108,11 @@ class ClasstableViewController:UIViewController, UICollectionViewDataSource, UIC
     let daysPerWeek: Int = 7
     let cellMargin: CGFloat = 2.0
     
-    
+    var textArray:[String]!
+    var imageArray: [UIImage]!
     let weekArray = ["限","月","火","水","木","金","土"]
+    @IBOutlet var image :UIImageView!
+    @IBOutlet var text :UILabel!
     
     
     
@@ -119,7 +122,14 @@ class ClasstableViewController:UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let number = Int(arc4random_uniform(4))
+        imageArray = [UIImage(named:"late.png")!,
+                        UIImage(named:"good.png")!,
+                        UIImage(named:"study.png")!,
+                        UIImage(named:"note.png")!]
+        textArray  = ["今日は遅刻しないぞ！！", "今日はなんだかいける気がする", "今日は勉強モード！！", "今日は頑張ってノートとるぞ！"]
+        image.image = imageArray[number]
+        text.text = textArray[number]
         CollectionView.delegate = self
         CollectionView.dataSource = self
         CollectionView.backgroundColor = UIColor.white
