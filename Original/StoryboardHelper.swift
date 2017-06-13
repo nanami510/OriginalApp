@@ -34,6 +34,9 @@ struct StoryboardHelper {
         } else if height == 1024 {
             // iPad,2,Air,mini
             storyboard = UIStoryboard(name: "3.5inch", bundle: nil)
+        } else if height == 1366 {
+            // iPad,2,Air,mini
+            storyboard = UIStoryboard(name: "3.5inch", bundle: nil)
         } else {
             // iPhone5,5s,5c,unknown
             storyboard = UIStoryboard(name: "Main", bundle: nil)

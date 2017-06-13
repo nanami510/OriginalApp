@@ -151,7 +151,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gJ-gz-0Ih">
-                                <rect key="frame" x="26" y="332" width="263" height="216"/>
+                                <rect key="frame" x="26" y="332" width="263" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText"/>
@@ -231,8 +231,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wI-SF-bwg">
+                                <rect key="frame" x="149" y="257" width="17" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoQ-AW-mt9">
-                                <rect key="frame" x="230" y="577" width="85" height="30"/>
+                                <rect key="frame" x="219" y="514" width="85" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -248,13 +255,6 @@
                                     <action selector="createButton" destination="Tx6-Cl-Vcp" eventType="touchUpInside" id="Zun-fa-O9x"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wI-SF-bwg">
-                                <rect key="frame" x="149" y="257" width="17" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="0.3613548801369863" colorSpace="calibratedWhite"/>
                     </view>
@@ -391,7 +391,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P2E-HO-Dp1">
-                                <rect key="frame" x="27" y="317" width="261" height="231"/>
+                                <rect key="frame" x="27" y="317" width="261" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -432,8 +432,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6R-vP-NqJ">
-                                <rect key="frame" x="232" y="588" width="92" height="42"/>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6R-vP-NqJ">
+                                <rect key="frame" x="222" y="518" width="102" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -571,7 +571,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FQQ-vL-rwK">
-                                <rect key="frame" x="0.0" y="125" width="320" height="443"/>
+                                <rect key="frame" x="0.0" y="125" width="320" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hgB-Od-iFu">
                                     <size key="itemSize" width="49" height="51"/>
@@ -599,15 +599,6 @@
                                 <state key="normal" title="Button" image="hamburger02.gif"/>
                                 <connections>
                                     <action selector="onTouchBootMenuButtonWithSender:" destination="BTJ-LB-lGI" eventType="touchUpInside" id="eIY-cq-oEN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhF-jd-Yeg">
-                                <rect key="frame" x="305" y="599" width="54" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="ごみ箱のフリーアイコン.png"/>
-                                <connections>
-                                    <action selector="trash" destination="BTJ-LB-lGI" eventType="touchUpInside" id="Fmy-bL-G9D"/>
-                                    <segue destination="5Th-Ya-8BG" kind="presentation" identifier="gotrash" id="XHk-Ao-qrB"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gp7-JI-Oc4">
@@ -668,6 +659,15 @@
                                     </label>
                                 </subviews>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhF-jd-Yeg">
+                                <rect key="frame" x="225" y="463" width="95" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="ごみ箱のフリーアイコン.png"/>
+                                <connections>
+                                    <action selector="trash" destination="BTJ-LB-lGI" eventType="touchUpInside" id="Fmy-bL-G9D"/>
+                                    <segue destination="5Th-Ya-8BG" kind="presentation" identifier="gotrash" id="XHk-Ao-qrB"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
